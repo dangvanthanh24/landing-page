@@ -2,103 +2,97 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Landing Page Demo</title>
+  <title>Mua Ngay – Ưu Đãi Hôm Nay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
+    body { margin:0; font-family:Arial,sans-serif; background:#f5f5f5; color:#333; }
     .hero {
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
+      background: linear-gradient(135deg,#ff416c,#ff4b2b);
+      color:white; text-align:center; padding:80px 20px;
     }
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+    .hero h1 { font-size:42px; margin-bottom:10px; }
+    .hero p { font-size:20px; margin-bottom:25px; }
     .btn {
-      background: #ffcc00;
-      color: #000;
-      padding: 15px 30px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+      background:#ffd700; color:#000; padding:15px 35px;
+      text-decoration:none; font-weight:bold; border-radius:30px;
+      display:inline-block;
     }
-    .section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .section { max-width:1100px; margin:auto; padding:60px 20px; }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
     .box {
-      background: white;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background:white; padding:25px; border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,.1);
+    }
+    .price {
+      font-size:36px; color:#ff4b2b; font-weight:bold;
+    }
+    .old-price {
+      text-decoration:line-through; color:#888; margin-left:10px;
     }
     .cta {
-      background: #007bff;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+      background:#222; color:white; text-align:center; padding:70px 20px;
     }
     footer {
-      background: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      background:#000; color:#aaa; text-align:center;
+      padding:20px; font-size:14px;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <h1>Giải pháp IT chuyên nghiệp</h1>
-    <p>Bảo mật – Hiệu suất – Đơn giản hóa vận hành</p>
-    <a href="#contact" class="btn">Liên hệ ngay</a>
-  </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>🔥 Sản phẩm giúp bạn tiết kiệm thời gian & tiền bạc</h1>
+  <p>Hơn 1.000 khách hàng đã sử dụng và hài lòng</p>
+  <a href="#buy" class="btn">MUA NGAY</a>
+</div>
 
-  <div class="section">
-    <h2>Tại sao chọn chúng tôi?</h2>
-    <div class="features">
-      <div class="box">
-        <h3>🔒 Bảo mật cao</h3>
-        <p>Giải pháp tuân thủ chuẩn doanh nghiệp.</p>
-      </div>
-      <div class="box">
-        <h3>⚡ Triển khai nhanh</h3>
-        <p>Setup nhanh, không ảnh hưởng hệ thống.</p>
-      </div>
-      <div class="box">
-        <h3>🤝 Hỗ trợ tận tâm</h3>
-        <p>Đồng hành cùng khách hàng 24/7.</p>
-      </div>
-    </div>
+<!-- LỢI ÍCH -->
+<div class="section">
+  <h2>Tại sao bạn cần sản phẩm này?</h2>
+  <div class="grid">
+    <div class="box">✅ Giải quyết vấn đề ngay lập tức</div>
+    <div class="box">🚀 Dễ sử dụng – ai cũng dùng được</div>
+    <div class="box">💰 Tiết kiệm chi phí lâu dài</div>
   </div>
+</div>
 
-  <div id="contact" class="cta">
-    <h2>Bạn cần tư vấn?</h2>
-    <p>Gửi email cho chúng tôi ngay</p>
-    <a class="btn" href="mailto:contact@yourcompany.com">Gửi Email</a>
+<!-- SẢN PHẨM / GIÁ -->
+<div id="buy" class="section">
+  <h2>Ưu đãi hôm nay</h2>
+  <div class="box">
+    <p class="price">499.000đ <span class="old-price">799.000đ</span></p>
+    <p>🎁 Tặng kèm hướng dẫn sử dụng chi tiết</p>
+    <p>⏰ Ưu đãi chỉ áp dụng hôm nay</p>
+    <a class="btn" href="https://zalo.me/xxxxxxxxx">ĐẶT HÀNG NGAY</a>
   </div>
+</div>
 
-  <footer>
-    © 2026 Your Company. All rights reserved.
-  </footer>
+<!-- SOCIAL PROOF -->
+<div class="section">
+  <h2>Khách hàng nói gì?</h2>
+  <div class="grid">
+    <div class="box">⭐️⭐️⭐️⭐️⭐️ “Rất đáng tiền!”</div>
+    <div class="box">⭐️⭐️⭐️⭐️⭐️ “Mua là dùng được ngay”</div>
+    <div class="box">⭐️⭐️⭐️⭐️⭐️ “Hỗ trợ cực nhanh”</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Đừng bỏ lỡ ưu đãi</h2>
+  <p>Số lượng có hạn – Hết là ngừng</p>
+  <a class="btn" href="https://zalo.me/xxxxxxxxx">CHỐT ĐƠN NGAY</a>
+</div>
+
+<footer>
+  © 2026 | Bán hàng online
+</footer>
 
 </body>
 </html>
+

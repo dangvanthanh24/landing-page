@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Landing Page Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+    .hero {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      background: #ffcc00;
+      color: #000;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .cta {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Giải pháp IT chuyên nghiệp</h1>
+    <p>Bảo mật – Hiệu suất – Đơn giản hóa vận hành</p>
+    <a href="#contact" class="btn">Liên hệ ngay</a>
+  </div>
+
+  <div class="section">
+    <h2>Tại sao chọn chúng tôi?</h2>
+    <div class="features">
+      <div class="box">
+        <h3>🔒 Bảo mật cao</h3>
+        <p>Giải pháp tuân thủ chuẩn doanh nghiệp.</p>
+      </div>
+      <div class="box">
+        <h3>⚡ Triển khai nhanh</h3>
+        <p>Setup nhanh, không ảnh hưởng hệ thống.</p>
+      </div>
+      <div class="box">
+        <h3>🤝 Hỗ trợ tận tâm</h3>
+        <p>Đồng hành cùng khách hàng 24/7.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="cta">
+    <h2>Bạn cần tư vấn?</h2>
+    <p>Gửi email cho chúng tôi ngay</p>
+    <a class="btn" href="mailto:contact@yourcompany.com">Gửi Email</a>
+  </div>
+
+  <footer>
+    © 2026 Your Company. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -109,35 +109,43 @@
         </div>
     </div>
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfcbzzyyFOhGaTXi-bRVqXsWtxUnmnXLgbNsV_FniFUlXViFpi3c4rQSIOTnsOrCs1WHBA/exec';
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfcbzzyyFOhGaTXi-bRVqXsWtxUnmnXLgbNsV_FniFUlXViFpi3c4rQSIOTnsOrCs1WHBA/exec';
 
-document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData();
-    formData.append('name', document.getElementById('name').value);
-    formData.append('phone', document.getElementById('phone').value);
-    formData.append('address', document.getElementById('address').value);
-    formData.append('quantity', document.querySelector('input[name="quantity"]:checked').value);
-    formData.append('color', document.getElementById('color').value);
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    fetch(scriptURL, {
-        method: 'POST',
-        body: formData  // Không cần headers 'Content-Type' nữa
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.result === 'success') {
-            alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ sớm.');
-            document.getElementById('orderForm').reset();
-        } else {
-            alert('Có lỗi xảy ra. Vui lòng thử lại.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Có lỗi xảy ra. Vui lòng thử lại.');
-    });
-});
+            // Sử dụng FormData để tránh CORS preflight
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('address', document.getElementById('address').value);
+            formData.append('quantity', document.querySelector('input[name="quantity"]:checked').value);
+            formData.append('color', document.getElementById('color').value);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.result === 'success') {
+                    alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ sớm.');
+                    document.getElementById('orderForm').reset(); // Xóa form sau submit
+                } else {
+                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            });
+        });
+    </script>
 </body>
 </html>

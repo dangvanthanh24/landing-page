@@ -1,73 +1,166 @@
-<style>
-.order-form {
-  max-width:500px;
-  margin:auto;
-  background:#fff;
-  padding:25px;
-  border-radius:10px;
-}
-.order-form input,
-.order-form textarea,
-.order-form select {
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:6px;
-  border:1px solid #ccc;
-}
-.order-form button {
-  width:100%;
-  background:#c40000;
-  color:#fff;
-  padding:15px;
-  font-size:18px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-}
-.order-form label {
-  font-size:14px;
-  display:block;
-  margin-bottom:6px;
-}
-</style>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Bán Giày - Đặt Hàng Ngay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #000;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], input[type="tel"], select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .quantity {
+            text-align: left;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .promo {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .promo h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .promo p {
+            margin: 5px 0 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ĐẶT HÀNG NGAY NHẬN ƯU ĐÃI KHỦNG</h1>
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="Họ tên" required>
+            <input type="tel" id="phone" placeholder="Số điện thoại" required>
+            <input type="text" id="address" placeholder="Địa chỉ" required>
+            <div class="quantity">
+                <label><input type="radio" name="quantity" value="1" checked> 1 chiếc: 299k + 30k phí ship</label><br>
+                <label><input type="radio" name="quantity" value="2"> 2 chiếc: 549k Miễn phí ship</label>
+            </div>
+            <select id="color" required>
+                <option value="">Chọn màu</option>
+                <option value="Đen">Đen</option>
+                <option value="Trắng">Trắng</option>
+                <option value="Xanh">Xanh</option>
+                <option value="Đỏ">Đỏ</option>
+            </select>
+            <div class="info">Bạn để lại thông tin tại đây nhân viên tư vấn sẽ gọi xác nhận!</div>
+            <button type="submit">ĐẶT HÀNG</button>
+        </form>
+        <div class="promo">
+            <h2>GIÀY THỂ THAO THÔNG MINH</h2>
+            <p>ƯU ĐÃI 299K</p>
+            <button onclick="document.getElementById('orderForm').scrollIntoView();">MUA NGAY</button>
+        </div>
+    </div>
 
-<div class="order-form">
-  <h2 style="text-align:center;">ĐẶT HÀNG NGAY<br>NHẬN ƯU ĐÃI KHỦNG</h2>
+    <script>
+        // Để đẩy dữ liệu vào Google Sheet, bạn cần thiết lập Google Apps Script.
+        // Hướng dẫn: 
+        // 1. Tạo một Google Sheet mới.
+        // 2. Vào Extensions > Apps Script.
+        // 3. Dán code sau vào editor:
+        /*
+        function doPost(e) {
+            var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+            var data = JSON.parse(e.postData.contents);
+            sheet.appendRow([data.name, data.phone, data.address, data.quantity, data.color, new Date()]);
+            return ContentService.createTextOutput(JSON.stringify({result: 'success'})).setMimeType(ContentService.MimeType.JSON);
+        }
+        */
+        // 4. Deploy as Web App, chọn Execute as: Me, Who has access: Anyone.
+        // 5. Lấy URL của Web App và dán vào biến scriptURL dưới đây.
 
-  <form 
-    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-    method="POST"
-    target="_blank">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx9Y71wczSgc4qE8Xwng27YmLkw3MGSqTLfjUmpKBtqjikCoG_TdpomFhH6WKmN1j4/exec'; // Ví dụ: https://script.google.com/macros/s/ABCDEF/exec
 
-    <input type="text" name="entry.1111111111" placeholder="Họ tên" required>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                quantity: document.querySelector('input[name="quantity"]:checked').value,
+                color: document.getElementById('color').value
+            };
 
-    <input type="tel" name="entry.2222222222" placeholder="Số điện thoại" required>
-
-    <input type="text" name="entry.3333333333" placeholder="Địa chỉ" required>
-
-    <label>
-      <input type="radio" name="entry.4444444444" value="1 chiếc: 299k + 30k ship">
-      1 chiếc: 299k + 30k ship
-    </label>
-    <label>
-      <input type="radio" name="entry.4444444444" value="2 chiếc: 549k miễn phí ship">
-      2 chiếc: 549k miễn phí ship
-    </label>
-
-    <select name="entry.5555555555" required>
-      <option value="">Chọn màu</option>
-      <option value="Đen">Đen</option>
-      <option value="Bạc">Bạc</option>
-      <option value="Vàng">Vàng</option>
-    </select>
-
-    <textarea name="entry.6666666666" rows="3"
-      placeholder="Bạn để lại lời nhắn tại đây, nhân viên tư vấn sẽ gọi xác nhận"></textarea>
-
-    <button type="submit">ĐẶT HÀNG</button>
-  </form>
-</div>
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    alert('Đặt hàng thành công! Chúng tôi sẽ liên hệ sớm.');
+                } else {
+                    alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            });
+        });
+    </script>
+</body>
+</html>
 
 
 
